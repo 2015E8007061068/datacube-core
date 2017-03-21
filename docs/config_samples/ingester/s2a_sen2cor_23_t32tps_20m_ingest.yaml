@@ -1,0 +1,120 @@
+source_type: s2a_sen2cor_23_no_dem_yes_cirrus
+output_type: s2a_sen2cor_23_t32tps_20m
+
+description: Sentinel-2A USER PRD MSI2A 20 metre, 10km tile (EPSG:32633)
+
+location: '/mnt/CEPH_FS_RASDAMAN/opendatacube/tiles'
+file_path_template: 'S2A_USER_PRD_MSI2A/s2a_sen2cor_23_t32tps_20m_{tile_index[0]}_{tile_index[1]}_{start_time}.nc'
+global_attributes:
+  title: EURAC Sentinel-2A Level-2A
+  summary: Sentinel-2A Multispectral Imager Precision Ortho-corrected data
+  source: S2A MSI Level-2A granules
+  history: This data represents a tile and reprojection of Sentinel-2 MSI granule data.
+  institution: ESA
+  instrument: MSI
+  cdm_data_type: Grid
+  keywords: EURAC,ESA,REFLECTANCE,MSI,EARTH SCIENCE
+  keywords_vocabulary: GCMD
+  platform: SENTINEL-2A
+  processing_level: 2A
+  product_version: '1.0.0'
+  product_suite: Sentinel-2A
+  project: AGDC
+  publisher_email: Harald.Kristen@eurac.edu
+  publisher_name: Harald Kristen
+  publisher_url: eurac.edu
+  coverage_content_type: physicalMeasurement
+  license: https://creativecommons.org/licenses/by/4.0/
+  acknowledgment: Sentinel-2 data is provided by the European Space Agency on behalf of the European Commission via download.
+
+storage:
+  driver: NetCDF CF
+
+  crs: EPSG:32633
+  tile_size:
+          x: 10000.0
+          y: 10000.0
+  resolution:
+          x: 20
+          y: -20
+  chunking:
+      x: 200
+      y: 200
+      time: 1
+  dimension_order: ['time', 'y', 'x']
+
+fuse_data: copy
+
+measurements:
+    - name: B02
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B02_20m'
+      zlib: True
+      attrs:
+          alias: "Band2"
+    - name: B03
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B03_20m'
+      zlib: True
+      attrs:
+          alias: "Band3"
+    - name: B04
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B04_20m'
+      zlib: True
+      attrs:
+          alias: "Band4"
+    - name: B05
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B05_20m'
+      zlib: True
+      attrs:
+          alias: "Band5"
+    - name: B06
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B06_20m'
+      zlib: True
+      attrs:
+          alias: "Band6"
+    - name: B07
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B07_20m'
+      zlib: True
+      attrs:
+          alias: "Band7"
+    - name: B08A
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B8A_20m'
+      zlib: True
+      attrs:
+          alias: "Band8A"
+    - name: B11
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B11_20m'
+      zlib: True
+      attrs:
+          alias: "Band11"
+    - name: B12
+      dtype: int16
+      nodata: -999
+      resampling_method: nearest
+      src_varname: 'B12_20m'
+      zlib: True
+      attrs:
+          alias: "Band12"
